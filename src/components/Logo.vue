@@ -3,8 +3,8 @@
     class="logo"
     :style="{
       position: 'relative',
-      width: `${size}px`,
-      height: `${size * 0.93}px`,
+      width: `${size}${sizeUnit}`,
+      height: `${size * 0.93}${sizeUnit}`,
       mixBlendMode: mixBlendMode,
     }"
   >
@@ -202,6 +202,7 @@ export default {
   components: { LogoBg, LogoSupertext, LogoCutoutSupertext },
   props: {
     size: { type: Number, default: 100 },
+    sizeUnit: { type: String, default: "px" },
     mask: { type: Boolean, default: false },
     showPeerJLogo: { type: Boolean, default: true },
     showSubtext: { type: Boolean, default: true },

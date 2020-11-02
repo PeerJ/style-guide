@@ -7,20 +7,21 @@
     :bgColor="color"
     v-bind="$attrs"
     :size="size"
+    :sizeUnit="sizeUnit"
     :textColor="textColor"
   >
     <div
       class="logo__section"
       :style="{
         position: 'absolute',
-        left: `${size * 0.125}px`,
-        right: `${size * 0.125}px`,
+        left: `${size * 0.125}${sizeUnit}`,
+        right: `${size * 0.125}${sizeUnit}`,
         top: '75%',
-        bottom: `${size * 0.1}px`,
+        bottom: `${size * 0.1}${sizeUnit}`,
         color: textColor ? textColor : 'white',
         fontFamily: 'Helvetica Neue, Roboto, Sans Serif',
-        fontSize: `${size * 0.065}px`,
-        lineHeight: `${size * 0.065}px`,
+        fontSize: `${size * 0.065}${sizeUnit}`,
+        lineHeight: `${size * 0.065}${sizeUnit}`,
         letterSpacing: '.0125em',
         display: 'flex',
         alignItems: 'center',
@@ -52,6 +53,7 @@ export default {
     section: String,
     showSection: { type: Boolean, default: true },
     size: Number,
+    sizeUnit: { type: String, default: "px" },
     bgColor: Object,
     textColor: String,
   },

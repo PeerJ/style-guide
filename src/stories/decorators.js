@@ -38,7 +38,7 @@ export const translucentDecorator = (storyCb, context) => ({
                 left: '0',
             }"
         >
-        <img :src="imgSrc" :style="{maxWidth: '100%', objectFit: 'contain'}"/>
+        <img :src="imgSrc" :style="{width: '100%', maxWidth: '100%', objectFit: 'contain'}"/>
         </div>
         <story />
     </div>`,
@@ -47,7 +47,7 @@ export const translucentDecorator = (storyCb, context) => ({
   },
   computed: {
     imgSrc() {
-      return require("../assets/4004-green.jpg");
+      return require("../assets/Misc_pollen.jpg");
     },
   },
   //   data() {

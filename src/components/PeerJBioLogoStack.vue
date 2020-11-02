@@ -10,6 +10,7 @@
       >
         <PeerJBioLogo
           :size="size"
+          :sizeUnit="sizeUnit"
           :section="section"
           :showSection="view === 'normal' ? false : true"
           :translucent="translucent"
@@ -56,7 +57,9 @@ export default {
   components: { PeerJBioLogo },
   props: {
     size: { type: Number, default: 100 },
+    sizeUnit: { type: String, default: "px" },
     marginSize: { type: Number, default: 20 },
+    marginSizeUnit: { type: String, default: "px" },
     view: { type: String, default: "normal" },
     translucent: { type: Boolean, default: true },
     direction: { type: String, default: "horizontal" },
@@ -78,13 +81,15 @@ export default {
         console.log("direction", this.direction, this.view);
         if (this.direction === "horizontal") {
           return {
-            top: "0px",
-            left: `${index * (this.size + this.marginSize)}px`,
+            top: "0",
+            left: `calc(${index} * (${this.size}${this.sizeUnit}) + ${index} * (${this.marginSize}${this.marginSizeUnit}))`,
           };
         } else {
           return {
-            top: `${index * (this.size * 0.93 + this.marginSize)}px`,
-            left: "0px",
+            top: `calc(${index} * (${this.size * 0.93}${
+              this.sizeUnit
+            }) + ${index} * (${this.marginSize}${this.marginSizeUnit}))`,
+            left: "0",
           };
         }
       }

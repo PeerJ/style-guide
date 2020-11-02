@@ -1,7 +1,7 @@
 <template>
   <div class="peerj-logo-stack" :style="{ position: 'absolute' }">
     <!-- having a parent with transparency style prop creates a mixBlendMode context so that the mixBlendModes don't interact with Bg -->
-    <div :style="{ opacity: view === 'normal' ? 0.89 : 0.99 }">
+    <div :style="{ opacity: view === 'normal' && translucent ? 0.89 : 0.99 }">
       <!-- <div
         :style="{
           background: view === 'normal' ? 'transparent' : 'black',
@@ -15,6 +15,7 @@
       <div class="peerj-logo-stack__layer" :style="getLayerStyle(6)">
         <PeerJLogo
           :size="size"
+          :sizeUnit="sizeUnit"
           mixBlendMode="normal"
           :showSubtext="true"
           :mask="mask"
@@ -25,6 +26,7 @@
       <div class="peerj-logo-stack__layer" :style="getLayerStyle(5)">
         <PeerJBioLogo
           :size="size"
+          :sizeUnit="sizeUnit"
           mixBlendMode="normal"
           :showSubtext="getshowSubtextProp(1)"
           :mask="mask"
@@ -35,6 +37,7 @@
       <div class="peerj-logo-stack__layer" :style="getLayerStyle(4)">
         <PeerJPhysicalChemLogo
           :size="size"
+          :sizeUnit="sizeUnit"
           mixBlendMode="normal"
           :showSubtext="true"
           :mask="mask"
@@ -44,6 +47,7 @@
       <div class="peerj-logo-stack__layer" :style="getLayerStyle(3)">
         <PeerJOrganicChemLogo
           :size="size"
+          :sizeUnit="sizeUnit"
           mixBlendMode="multiply"
           :showSubtext="true"
           :mask="mask"
@@ -53,6 +57,7 @@
       <div class="peerj-logo-stack__layer" :style="getLayerStyle(2)">
         <PeerJInorganicChemLogo
           :size="size"
+          :sizeUnit="sizeUnit"
           mixBlendMode="normal"
           :showSubtext="true"
           :mask="mask"
@@ -62,6 +67,7 @@
       <div class="peerj-logo-stack__layer" :style="getLayerStyle(1)">
         <PeerJAnalyticalChemLogo
           :size="size"
+          :sizeUnit="sizeUnit"
           mixBlendMode="normal"
           :showSubtext="true"
           :mask="mask"
@@ -71,6 +77,7 @@
       <div class="peerj-logo-stack__layer" :style="getLayerStyle(0)">
         <PeerJMaterialsScienceLogo
           :size="size"
+          :sizeUnit="sizeUnit"
           mixBlendMode="normal"
           :showSubtext="true"
           :mask="mask"
@@ -104,7 +111,9 @@ export default {
   },
   props: {
     size: { type: Number, default: 100 },
+    sizeUnit: { type: String, dedault: "px" },
     marginSize: { type: Number, default: 20 },
+    marginSizeUnit: { type: String, default: "px" },
     view: { type: String, default: "normal" },
     direction: { type: String, default: "horizontal" },
     mask: { type: Boolean, default: false },
@@ -131,17 +140,16 @@ export default {
         if (this.direction === "horizontal") {
           return {
             top: "0px",
-            left: `${index * (this.size + this.marginSize)}px`,
+            left: `calc(${index} * (${this.size}${this.sizeUnit}) + ${index} * (${this.marginSize}${this.marginSizeUnit}))`,
             zIndex: index,
             opacity: index < 6 ? 0 : 1,
-            transition:
-              this.direction === "horizontal"
-                ? `left  1s, opacity 1s ${index * fadeTimeOffset}s`
-                : `top 1s, opacity 1s ${index * fadeTimeOffset}s`,
+            transition: `left  1s, opacity 1s ${index * fadeTimeOffset}s`,
           };
         } else {
           return {
-            top: `${index * (this.size * 0.93 + this.marginSize)}px`,
+            top: `calc(${index} * (${this.size * 0.93}${
+              this.sizeUnit
+            }) + ${index} * (${this.marginSize}${this.marginSizeUnit}))`,
             left: "0px",
             zIndex: index,
             opacity: index < 6 ? 0 : 1,
