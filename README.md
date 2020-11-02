@@ -2,6 +2,8 @@
 
 This is the repo for components used in the PeerJ style guide.
 
+The components can be previewed in Storybook.
+
 ## Project setup
 
 ```
@@ -18,6 +20,12 @@ npm run serve
 
 ```
 npm run build
+```
+
+or
+
+```
+npm run storybook:build
 ```
 
 ### Lints and fixes files

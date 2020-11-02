@@ -1,7 +1,7 @@
 <template>
   <div class="peerj-chemistry-logo-stack" :style="{ position: 'absolute' }">
-    <!-- having a parent with transparency style prop creates a mixBlendMode context -->
-    <div :style="{ opacity: translucent ? 0.8 : 1 }">
+    <!-- having a parent with transparency style prop creates a mixBlendMode context so that the mixBlendModes don't interact with Bg -->
+    <div :style="{ opacity: view === 'normal' ? 0.89 : 0.99 }">
       <!-- <div
         :style="{
           background: view === 'normal' ? 'transparent' : 'black',
@@ -19,7 +19,7 @@
           mixBlendMode="multiply"
           :showSubtext="getshowSubtextProp(1)"
           :mask="mask"
-          :translucent="false"
+          :translucent="translucent"
         />
       </div>
       <div class="peerj-chemistry-logo-stack__layer" :style="getLayerStyle(2)">
@@ -28,7 +28,7 @@
           mixBlendMode="multiply"
           :showSubtext="getshowSubtextProp(2)"
           :mask="mask"
-          :translucent="false"
+          :translucent="translucent"
         />
       </div>
       <div class="peerj-chemistry-logo-stack__layer" :style="getLayerStyle(3)">
@@ -37,7 +37,7 @@
           mixBlendMode="multiply"
           :showSubtext="getshowSubtextProp(3)"
           :mask="mask"
-          :translucent="false"
+          :translucent="translucent"
         />
       </div>
       <div class="peerj-chemistry-logo-stack__layer" :style="getLayerStyle(4)">
@@ -46,7 +46,7 @@
           mixBlendMode="multiply"
           :showSubtext="getshowSubtextProp(4)"
           :mask="mask"
-          :translucent="false"
+          :translucent="translucent"
         />
       </div>
       <div class="peerj-chemistry-logo-stack__layer" :style="getLayerStyle(5)">
@@ -55,7 +55,7 @@
           mixBlendMode="multiply"
           :showSubtext="getshowSubtextProp(5)"
           :mask="mask"
-          :translucent="false"
+          :translucent="translucent"
         />
       </div>
       <div class="peerj-chemistry-logo-stack__layer" :style="getLayerStyle(0)">
@@ -63,7 +63,7 @@
           :size="size"
           mixBlendMode="screen"
           :mask="false"
-          :translucent="false"
+          :translucent="translucent"
         />
       </div>
     </div>

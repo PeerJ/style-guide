@@ -1,7 +1,7 @@
 <template>
   <div class="peerj-bio-logo-stack" :style="{ position: 'relative' }">
     <!-- having a parent with transparency style prop creates a mixBlendMode context -->
-    <div :style="{ opacity: translucent ? 0.8 : 1 }">
+    <div :style="{ opacity: view === 'normal' && translucent ? 0.9 : 0.99 }">
       <div
         class="peerj-bio-logo-stack__section"
         :key="index"
@@ -12,7 +12,7 @@
           :size="size"
           :section="section"
           :showSection="view === 'normal' ? false : true"
-          :translucent="false"
+          :translucent="translucent"
           :bgColor="getMultiplyColor(index + 1)"
           mixBlendMode="multiply"
           :textColor="view === 'normal' ? 'white' : textColor"
@@ -56,10 +56,10 @@ export default {
   components: { PeerJBioLogo },
   props: {
     size: { type: Number, default: 100 },
-    marginSize: { type: Number, default: 0 },
+    marginSize: { type: Number, default: 20 },
     view: { type: String, default: "normal" },
-    direction: { type: String, default: "vertical" },
     translucent: { type: Boolean, default: true },
+    direction: { type: String, default: "horizontal" },
   },
   data() {
     return {
@@ -72,11 +72,21 @@ export default {
       if (this.view === "normal" && index > 0) {
         return {
           top: `0`,
+          left: `0`,
         };
       } else if (this.view === "expanded" && index > 0) {
-        return {
-          top: `${index * (this.size + this.marginSize)}px`,
-        };
+        console.log("direction", this.direction, this.view);
+        if (this.direction === "horizontal") {
+          return {
+            top: "0px",
+            left: `${index * (this.size + this.marginSize)}px`,
+          };
+        } else {
+          return {
+            top: `${index * (this.size * 0.93 + this.marginSize)}px`,
+            left: "0px",
+          };
+        }
       }
     },
     getScreenColor: function(index) {
@@ -99,7 +109,10 @@ export default {
     },
     getMultiplyColor: function(index) {
       const layerCount = this.sections.length + 1;
-      const { r, g, b } = colors.bio.rgb;
+      const rgb = colors.bio.rgb;
+      const a = colors.bio.rgba.a;
+
+      const { r, g, b } = rgb;
       const hsl = convert.rgb.hsl.raw(r, g, b);
       const hRange = 45;
       const hStep = hRange / layerCount; // full range of h is 360
@@ -110,7 +123,7 @@ export default {
       const interRgb = convert.hsl.rgb(interHsl);
       const color = {
         rgb: { r: interRgb[0], g: interRgb[1], b: interRgb[2] },
-        rgba: { r: interRgb[0], g: interRgb[1], b: interRgb[2], a: 1 },
+        rgba: { r: interRgb[0], g: interRgb[1], b: interRgb[2], a: a },
       };
       const colorObj = new journalColor(color);
       return colorObj;

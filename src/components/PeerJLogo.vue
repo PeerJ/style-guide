@@ -23,7 +23,7 @@ export default {
   },
   data() {
     return {
-      bgColor: colors.bio,
+      bgColor: colors.peerj,
       logoCutoutSvg: LogoCutout,
       logoTextSvg: LogoText,
     };

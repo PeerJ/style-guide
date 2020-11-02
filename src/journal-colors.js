@@ -1,9 +1,13 @@
 // rgba value calculated using https://www.quanzhanketang.com/colors/colors_hwb.html
 
 export const RGBJournalColors = {
+  peerj: {
+    rgb: { r: 11, g: 214, b: 111 },
+    rgba: { r: 0, g: 207, b: 102, a: 0.9 },
+  },
   bio: {
     rgb: { r: 2, g: 167, b: 252 },
-    rgba: { r: 0, g: 146, b: 242, a: 0.9 },
+    rgba: { r: 0, g: 156, b: 242, a: 0.9 },
   },
   physicalChem: {
     rgb: { r: 85, g: 134, b: 227 },
@@ -58,6 +62,7 @@ export class journalColor {
 
 export default class peerJColors {
   constructor() {
+    this.peerj = new journalColor(RGBJournalColors.peerj);
     this.bio = new journalColor(RGBJournalColors.bio);
     this.physicalChem = new journalColor(RGBJournalColors.physicalChem);
     this.organicChem = new journalColor(RGBJournalColors.organicChem);
