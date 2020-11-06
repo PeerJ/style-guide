@@ -1,4 +1,14 @@
-console.log("preview.js loaded");
+import vuetify from "@/plugins/vuetify";
+import { VApp } from "vuetify/lib";
+
+// see https://stackoverflow.com/questions/59771565/vuetify-in-storybook-gets-error-undefined-is-not-an-object-evaluating-this-v
+export const decorators = [
+  () => ({
+    components: { VApp },
+    template: `<v-app :style="{background: 'transparent'}"><story /></v-app>`,
+    vuetify,
+  }),
+];
 
 export const globalTypes = {
   backgroundMode: {

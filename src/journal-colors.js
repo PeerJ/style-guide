@@ -1,4 +1,5 @@
 // rgba value calculated using https://www.quanzhanketang.com/colors/colors_hwb.html
+import colorConvert from "color-convert";
 
 export const RGBJournalColors = {
   peerj: {
@@ -49,6 +50,11 @@ export class journalColor {
     this.rgb = this.color.rgb;
     this.rgba = this.color.rgba;
     this.rgb.string = `rgb(${this.color.rgb.r},${this.color.rgb.g},${this.color.rgb.b})`;
+    this.rgb.hexString = colorConvert.rgb.hex(
+      this.color.rgb.r,
+      this.color.rgb.g,
+      this.color.rgb.b
+    );
     this.rgb.array = [this.color.rgb.r, this.color.rgb.g, this.color.rgb.b];
     this.rgba.string = `rgba(${this.color.rgba.r},${this.color.rgba.g},${this.color.rgba.b}, ${this.color.rgba.a})`;
     this.rgba.array = [
@@ -57,6 +63,7 @@ export class journalColor {
       this.color.rgba.b,
       this.color.rgba.a,
     ];
+    // console.log("this.rgb.hexString", this.rgb.hexString);
   }
 }
 
