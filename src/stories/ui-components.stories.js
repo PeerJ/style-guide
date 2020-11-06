@@ -1,6 +1,8 @@
 import Vuetify, { VBtn } from "vuetify/lib";
 import { translucentDecorator } from "./decorators.js";
 import StylePrimaryButton from "../components/StylePrimaryButton";
+import StyleBasicButton from "../components/StyleBasicButton";
+import StyleSubmitArticleButton from "../components/StyleSubmitArticleButton";
 
 export default {
   components: { VBtn },
@@ -14,4 +16,14 @@ export default {
 export const PrimaryButton = () => ({
   components: { StylePrimaryButton },
   template: `<StylePrimaryButton>Label</StylePrimaryButton>`,
+});
+
+export const BasicButton = () => ({
+  components: { StyleBasicButton },
+  template: `<StyleBasicButton>Label</StyleBasicButton>`,
+});
+
+export const SubmitManuscriptButton = () => ({
+  components: { StyleSubmitArticleButton },
+  template: `<StyleSubmitArticleButton>Upload Manuscript</StyleSubmitArticleButton>`,
 });

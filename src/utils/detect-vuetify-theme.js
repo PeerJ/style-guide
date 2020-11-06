@@ -10,5 +10,5 @@ export default function detectVuetifyTheme($vuetify) {
       return key;
     }
   }
-  return "default";
+  return "peerj";
 }
