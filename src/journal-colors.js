@@ -4,43 +4,43 @@ import colorConvert from "color-convert";
 export const RGBJournalColors = {
   peerj: {
     rgb: { r: 11, g: 214, b: 111 },
-    rgba: { r: 0, g: 207, b: 102, a: 0.9 },
+    rgba: { r: 0, g: 204, b: 101, a: 0.85 },
   },
   bio: {
     rgb: { r: 2, g: 167, b: 252 },
-    rgba: { r: 0, g: 156, b: 242, a: 0.9 },
+    rgba: { r: 0, g: 151, b: 235, a: 0.85 },
   },
   physicalChem: {
     rgb: { r: 85, g: 134, b: 227 },
-    rgba: { r: 0, g: 75, b: 217, a: 0.7 },
+    rgba: { r: 56, g: 112, b: 220, a: 0.85 },
   },
   organicChem: {
     rgb: { r: 117, g: 112, b: 197 },
-    rgba: { r: 13, g: 0, b: 156, a: 0.56 },
+    rgba: { r: 95, g: 87, b: 183, a: 0.85 },
   },
   inorganicChem: {
     rgb: { r: 134, g: 94, b: 164 },
-    rgba: { r: 68, g: 0, b: 117, a: 0.66 },
+    rgba: { r: 111, g: 65, b: 144, a: 0.85 },
   },
   analyticalChem: {
     rgb: { r: 137, g: 74, b: 130 },
-    rgba: { r: 91, g: 1, b: 86, a: 0.74 },
+    rgba: { r: 113, g: 40, b: 105, a: 0.85 },
   },
   materialsScience: {
     rgb: { r: 132, g: 60, b: 98 },
-    rgba: { r: 97, g: 0, b: 52, a: 0.8 },
+    rgba: { r: 109, g: 24, b: 69, a: 0.85 },
   },
   chemistry: {
     rgb: { r: 143, g: 39, b: 85 },
-    rgba: { r: 130, g: 0, b: 57, a: 0.89 },
+    rgba: { r: 130, g: 0, b: 57, a: 0.85 },
   },
   preprints: {
     rgb: { r: 250, g: 157, b: 43 },
-    rgba: { r: 150, g: 137, b: 0, a: 0.87 },
+    rgba: { r: 250, g: 138, b: 0, a: 0.85 },
   },
   computerScience: {
     rgb: { r: 255, g: 248, b: 94 },
-    rgba: { r: 255, g: 242, b: 0, a: 0.7 },
+    rgba: { r: 251, g: 241, b: 50, a: 0.85 },
   },
 };
 
