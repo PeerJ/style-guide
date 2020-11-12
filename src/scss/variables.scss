@@ -1,0 +1,19 @@
+// see https://vuetifyjs.com/en/features/sass-variables/
+
+$body-font-family: "Helvetica Neue", "Roboto", sans-serif;
+$heading-font-family: "Helvetica Neue", "Roboto", sans-serif;
+
+// html,
+// body,
+// .v-application,
+// h1,
+// h2,
+// h3,
+// h4,
+// h5,
+// h6 {
+//   font-family: $body-font-family;
+//   outline: 1px solid yellow;
+// }
+
+@import "~vuetify/src/styles/styles.sass";

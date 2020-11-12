@@ -1,6 +1,10 @@
 import vuetify from "@/plugins/vuetify";
 import { VApp } from "vuetify/lib";
 
+// see: https://github.com/storybookjs/storybook/issues/6364#issuecomment-485651328
+import "!style-loader!css-loader!sass-loader!../../src/scss/variables.scss";
+import "!style-loader!css-loader!sass-loader!../../src/scss/type-styles.scss";
+
 // see https://stackoverflow.com/questions/59771565/vuetify-in-storybook-gets-error-undefined-is-not-an-object-evaluating-this-v
 export const decorators = [
   () => ({

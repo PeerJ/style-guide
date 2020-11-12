@@ -1,7 +1,11 @@
+let path = require("path");
+const scssPath = path.resolve(__dirname, "../", "src", "scss");
+
 module.exports = {
   configureWebpack: {
     devtool: "source-map",
   },
+
   chainWebpack: (config) => {
     const svgRule = config.module.rule("svg");
 
@@ -15,4 +19,11 @@ module.exports = {
       .loader("vue-svg-loader");
   },
   transpileDependencies: ["vuetify"],
+  // css: {
+  //   loaderOptions: {
+  //     sass: {
+  //       prependData: `@import '~@/variables.sass'`,
+  //     },
+  //   },
+  // },
 };

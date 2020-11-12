@@ -1,0 +1,245 @@
+@import "./variables.scss";
+
+@mixin font-headline-1 {
+  font-size: 96px;
+  font-family: "Helvetica Neue";
+  font-weight: 400 !important;
+  line-height: 96px;
+}
+@mixin font-headline-2 {
+  font-size: 60px;
+  font-family: "Helvetica Neue";
+  font-weight: 400 !important;
+  line-height: 60px;
+}
+@mixin font-headline-3 {
+  font-size: 48px;
+  font-family: "Helvetica Neue";
+  font-weight: medium;
+}
+@mixin font-headline-4 {
+  font-size: 34px;
+  font-family: "Helvetica Neue";
+  font-weight: normal;
+}
+@mixin font-headline-5 {
+  font-size: 24px;
+  font-family: "Helvetica Neue";
+  font-weight: normal;
+}
+@mixin font-headline-6 {
+  font-size: 24px;
+  font-family: "Helvetica Neue";
+  font-weight: medium;
+}
+@mixin font-subtitle-1 {
+  font-size: 16px;
+  font-family: "Helvetica Neue";
+  font-weight: normal;
+}
+@mixin font-subtitle-2 {
+  font-size: 14px;
+  font-family: "Helvetica Neue";
+  font-weight: medium;
+}
+@mixin font-body-1 {
+  font-size: 16px;
+  font-family: "Helvetica Neue";
+  font-weight: normal;
+}
+@mixin font-body-2 {
+  font-size: 14px;
+  font-family: "Helvetica Neue";
+  font-weight: normal;
+}
+@mixin font-button {
+  font-size: 14px;
+  font-family: "Helvetica Neue";
+  font-weight: medium;
+}
+@mixin font-caption {
+  font-size: 14px;
+  font-family: "Helvetica Neue";
+  font-weight: normal;
+}
+@mixin font-overline {
+  font-size: 10px;
+  font-family: "Helvetica Neue";
+  font-weight: normal;
+}
+@mixin font-headline-1-serif {
+  font-size: 96px;
+  font-family: "Literata";
+  font-weight: normal;
+  line-height: 96px;
+}
+@mixin font-headline-2-serif {
+  font-size: 60px;
+  font-family: "Literata";
+  font-weight: normal;
+  line-height: 60px;
+}
+@mixin font-headline-3-serif {
+  font-size: 48px;
+  font-family: "Literata";
+  font-weight: normal;
+  line-height: 48px;
+}
+@mixin font-headline-4-serif {
+  font-size: 34px;
+  font-family: "Literata";
+  font-weight: medium;
+}
+@mixin font-headline-5-serif {
+  font-size: 24px;
+  font-family: "Literata";
+  font-weight: medium;
+}
+@mixin font-headline-6-serif {
+  font-size: 24px;
+  font-family: "Literata";
+  font-weight: medium;
+}
+@mixin font-subtitle-1-serif {
+  font-size: 16px;
+  font-family: "Literata";
+  font-weight: medium;
+}
+@mixin font-subtitle-2-serif {
+  font-size: 14px;
+  font-family: "Literata";
+  font-weight: medium;
+}
+@mixin font-body-1-serif {
+  font-size: 16px;
+  font-family: "Literata";
+  font-weight: medium;
+}
+@mixin font-body-2-serif {
+  font-size: 14px;
+  font-family: "Literata";
+  font-weight: medium;
+  line-height: 20px;
+}
+
+h2,
+.text-h2 {
+  @include font-headline-2;
+}
+
+$headings: () !default;
+$headings: map-deep-merge(
+  (
+    "h1": (
+      "size": 6rem,
+      "weight": 400,
+      "line-height": 6rem,
+      "letter-spacing": -0.015625em,
+      "font-family": $heading-font-family,
+      "text-transform": false,
+    ),
+    "h2": (
+      "size": 3.75rem,
+      "weight": 400,
+      "line-height": 3.75rem,
+      "letter-spacing": -0.0083333333em,
+      "font-family": $heading-font-family,
+      "text-transform": false,
+      "outline": 1px solid red,
+    ),
+    "h3": (
+      "size": 3rem,
+      "weight": 400,
+      "line-height": 3.125rem,
+      "letter-spacing": normal,
+      "font-family": $heading-font-family,
+      "text-transform": false,
+    ),
+    "h4": (
+      "size": 2.125rem,
+      "weight": 400,
+      "line-height": 2.5rem,
+      "letter-spacing": 0.0073529412em,
+      "font-family": $heading-font-family,
+      "text-transform": false,
+    ),
+    "h5": (
+      "size": 1.5rem,
+      "weight": 400,
+      "line-height": 2rem,
+      "letter-spacing": normal,
+      "font-family": $heading-font-family,
+      "text-transform": false,
+    ),
+    "h6": (
+      "size": 1.25rem,
+      "weight": 500,
+      "line-height": 2rem,
+      "letter-spacing": 0.0125em,
+      "font-family": $heading-font-family,
+      "text-transform": false,
+    ),
+    "subtitle-1": (
+      "size": 1rem,
+      "weight": normal,
+      "line-height": 1.75rem,
+      "letter-spacing": 0.009375em,
+      "font-family": $body-font-family,
+      "text-transform": false,
+    ),
+    "subtitle-2": (
+      "size": 0.875rem,
+      "weight": 500,
+      "line-height": 1.375rem,
+      "letter-spacing": 0.0071428571em,
+      "font-family": $body-font-family,
+      "text-transform": false,
+    ),
+    "body-1": (
+      "size": 1rem,
+      "weight": 400,
+      "line-height": 1.5rem,
+      "letter-spacing": 0.03125em,
+      "font-family": $body-font-family,
+      "text-transform": false,
+    ),
+    "body-2": (
+      "size": 0.875rem,
+      "weight": 400,
+      "line-height": 1.25rem,
+      "letter-spacing": 0.0178571429em,
+      "font-family": $body-font-family,
+      "text-transform": false,
+    ),
+    "button": (
+      "size": 0.875rem,
+      "weight": 500,
+      "line-height": 2.25rem,
+      "letter-spacing": 0.0892857143em,
+      "font-family": $body-font-family,
+      "text-transform": uppercase,
+    ),
+    "caption": (
+      "size": 0.75rem,
+      "weight": 400,
+      "line-height": 1.25rem,
+      "letter-spacing": 0.0333333333em,
+      "font-family": $body-font-family,
+      "text-transform": false,
+    ),
+    "overline": (
+      "size": 0.75rem,
+      "weight": 500,
+      "line-height": 2rem,
+      "letter-spacing": 0.1666666667em,
+      "font-family": $body-font-family,
+      "text-transform": uppercase,
+    ),
+  ),
+  $headings
+);
+
+$typography: () !default;
+@each $type, $values in $headings {
+  $typography: map-deep-merge($typography, (#{$type}: map-values($values)));
+}
