@@ -57,42 +57,100 @@
 
     <div
       :style="{
-        top: '40px',
+        top: '0',
         position: 'absolute',
-        left: '10%',
-        animationDuration: '.75s',
-        animationName: 'slidedown',
-        animationDelay: '1.25s',
-        animationTimingFunction: 'ease-out',
-        animationFillMode: 'both',
+        left: '0',
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'space-between',
+
+        width: '100%',
+        height: '100%',
+        padding: '40px',
       }"
     >
-      <PeerJLogo :size="200" :translucent="true" :mask="true" />
+      <div
+        class="style-guide-banner__left"
+        :style="{
+          width: '15vw',
+          height: '15vw',
+          minWidth: '150px',
+          minHeight: '150px',
+          flex: '0 0 auto',
+          animationDuration: '.75s',
+          animationName: 'slidedown',
+          animationDelay: '1.25s',
+          animationTimingFunction: 'ease-out',
+          animationFillMode: 'both',
+          marginRight: '5vw',
+        }"
+      >
+        <PeerJLogo :size="100" sizeUnit="%" :translucent="true" :mask="true" />
+      </div>
+
+      <div
+        class="style-guide-banner__middle"
+        :style="{
+          flex: '1 1 50vw',
+          top: '40px',
+          minHeight: '200px',
+
+          minWidth: '240px',
+        }"
+      >
+        <h3
+          class="text-h5 text-sm-h4 text-md-h3 primary--text"
+          :style="{
+            animationDuration: '1.25s',
+            animationName: 'slidedown',
+            animationDelay: '1.35s',
+            animationTimingFunction: 'ease',
+            animationFillMode: 'both',
+            minHeight: '15vw',
+          }"
+        >
+          Publishing high-impact research from the world's top academics and
+          institutions
+        </h3>
+        <StylePrimarySearch
+          class="my-16"
+          :style="{
+            animationDuration: '1.25s',
+            animationName: 'slidedown',
+            animationDelay: '1.15s',
+            animationTimingFunction: 'ease',
+            animationFillMode: 'both',
+            marginRight: '5%',
+          }"
+        />
+      </div>
+      <div
+        class="style-guide-banner__right"
+        :style="{
+          width: '15vw',
+          height: '15vw',
+          minWidth: '150px',
+        }"
+      />
     </div>
-    <h2
-      class="text-h2 primary--text"
-      :style="{ position: 'absolute', left: '20%' }"
-    >
-      Publishing high-impact research from the world's top academics and
-      institutions
-    </h2>
   </div>
 </template>
 <style>
 @keyframes slidedown {
   from {
-    margin-top: -100vh;
+    transform: translateY(-100vh);
   }
   to {
-    margin-top: 0;
+    transform: translateY(0);
   }
 }
 </style>
 <script>
 import PeerJLogo from "./PeerJLogo.vue";
+import StylePrimarySearch from "./StylePrimarySearch";
 
 export default {
   name: "style-guide-banner-load",
-  components: { PeerJLogo },
+  components: { PeerJLogo, StylePrimarySearch },
 };
 </script>

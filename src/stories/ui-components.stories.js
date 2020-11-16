@@ -3,6 +3,7 @@ import { translucentDecorator } from "./decorators.js";
 import StylePrimaryButton from "../components/StylePrimaryButton";
 import StyleBasicButton from "../components/StyleBasicButton";
 import StyleSubmitArticleButton from "../components/StyleSubmitArticleButton";
+import StylePrimarySearch from "../components/StylePrimarySearch";
 
 export default {
   components: { VBtn },
@@ -26,4 +27,9 @@ export const BasicButton = () => ({
 export const SubmitManuscriptButton = () => ({
   components: { StyleSubmitArticleButton },
   template: `<StyleSubmitArticleButton>Upload Manuscript</StyleSubmitArticleButton>`,
+});
+
+export const PrimarySearch = () => ({
+  components: { StylePrimarySearch },
+  template: `<StylePrimarySearch>Search</StylePrimarySearch>`,
 });
