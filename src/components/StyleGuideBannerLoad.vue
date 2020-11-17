@@ -85,7 +85,7 @@
           marginRight: '5vw',
         }"
       >
-        <PeerJLogo :size="100" sizeUnit="%" :translucent="true" :mask="true" />
+        <PeerJLogo :size="100" sizeUnit="%" :translucent="false" :mask="true" />
       </div>
 
       <div
@@ -99,7 +99,7 @@
         }"
       >
         <h3
-          class="text-h5 text-sm-h4 text-md-h3 primary--text"
+          class="style-guide-banner__heading text-h5 text-sm-h4 text-md-h3 primary--text"
           :style="{
             animationDuration: '1.25s',
             animationName: 'slidedown',
@@ -107,6 +107,7 @@
             animationTimingFunction: 'ease',
             animationFillMode: 'both',
             minHeight: '15vw',
+            textShadow: '0 0 6px rgba(0,0,0,.4)',
           }"
         >
           Publishing high-impact research from the world's top academics and

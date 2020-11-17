@@ -29,7 +29,7 @@ export default {
 
 export const GlobalPeerJLogoStack = () => ({
   components: { PeerJLogoStack },
-  template: `<PeerJLogoStack :size="10" sizeUnit="vw"  :view="view" :translucent="translucent" :direction="direction"/>`,
+  template: `<PeerJLogoStack :size="150"  :view="view" :translucent="translucent" :direction="direction"/>`,
   props: {
     view: {
       default: select("view", ["normal", "expanded"], "normal"),
@@ -43,7 +43,7 @@ export const GlobalPeerJLogoStack = () => ({
 
 export const BioLogoStack = () => ({
   components: { PeerJBioLogoStack },
-  template: `<PeerJBioLogoStack :size="10" sizeUnit="vw" :view="view" :translucent="translucent" :direction="direction"/>`,
+  template: `<PeerJBioLogoStack :size="150" :view="view" :translucent="translucent" :direction="direction"/>`,
   props: {
     view: {
       default: select("view", ["normal", "expanded"], "normal"),
@@ -57,7 +57,7 @@ export const BioLogoStack = () => ({
 
 export const ChemistryLogoStack = () => ({
   components: { PeerJChemistryLogoStack },
-  template: `<PeerJChemistryLogoStack :size="15" sizeUnit="vw" :view="view" :translucent="translucent" :direction="direction"/>`,
+  template: `<PeerJChemistryLogoStack :size="150"  :view="view" :translucent="translucent" :direction="direction"/>`,
   props: {
     view: {
       default: select("view", ["normal", "expanded"], "normal"),

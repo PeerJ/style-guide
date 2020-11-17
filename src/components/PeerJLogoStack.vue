@@ -1,17 +1,7 @@
 <template>
   <div class="peerj-logo-stack" :style="{ position: 'absolute' }">
     <!-- having a parent with transparency style prop creates a mixBlendMode context so that the mixBlendModes don't interact with Bg -->
-    <div :style="{ opacity: view === 'normal' && translucent ? 0.89 : 0.99 }">
-      <!-- <div
-        :style="{
-          background: view === 'normal' ? 'transparent' : 'black',
-          position: 'absolute',
-          width: `${size}px`,
-          height: `${size * 0.93}px`,
-          opacity: view === 'normal' ? '0' : '0',
-          transition: 'background 1s',
-        }"
-      ></div> -->
+    <div :style="{ opacity: 0.99 }">
       <div class="peerj-logo-stack__layer" :style="getLayerStyle(6)">
         <PeerJLogo
           :size="size"
@@ -19,7 +9,7 @@
           mixBlendMode="normal"
           :showSubtext="true"
           :mask="mask"
-          :translucent="false"
+          :translucent="translucent"
         />
       </div>
 
@@ -48,7 +38,7 @@
         <PeerJOrganicChemLogo
           :size="size"
           :sizeUnit="sizeUnit"
-          mixBlendMode="multiply"
+          mixBlendMode="normal"
           :showSubtext="true"
           :mask="mask"
           :translucent="translucent"
@@ -118,18 +108,18 @@ export default {
     direction: { type: String, default: "horizontal" },
     mask: { type: Boolean, default: false },
     translucent: { type: Boolean, default: true },
-    trails: { type: Boolean, default: true },
+    trails: { type: Boolean, default: false },
   },
   methods: {
     getLayerStyle(index) {
-      const reverseIndex = 7 - index;
-      const fadeTimeOffset = 0.25;
+      const reverseIndex = 6 - index;
+      const fadeTimeOffset = 0;
       if (this.view === "normal") {
         return {
           top: `0`,
           left: `0`,
           zIndex: index,
-          opacity: 1,
+          opacity: index < 6 ? 0 : 1,
           transition:
             this.direction === "horizontal"
               ? `left 1s, opacity 1s ${reverseIndex * fadeTimeOffset}s`
@@ -140,19 +130,19 @@ export default {
         if (this.direction === "horizontal") {
           return {
             top: "0px",
-            left: `calc(${index} * (${this.size}${this.sizeUnit}) + ${index} * (${this.marginSize}${this.marginSizeUnit}))`,
+            left: `calc(${reverseIndex} * (${this.size}${this.sizeUnit}) + ${reverseIndex} * (${this.marginSize}${this.marginSizeUnit}))`,
             zIndex: index,
-            opacity: index < 6 ? 0 : 1,
+            opacity: index < 6 && this.trails ? 0 : 1,
             transition: `left  1s, opacity 1s ${index * fadeTimeOffset}s`,
           };
         } else {
           return {
-            top: `calc(${index} * (${this.size * 0.93}${
+            top: `calc(${reverseIndex} * (${this.size * 0.93}${
               this.sizeUnit
-            }) + ${index} * (${this.marginSize}${this.marginSizeUnit}))`,
+            }) + ${reverseIndex} * (${this.marginSize}${this.marginSizeUnit}))`,
             left: "0px",
             zIndex: index,
-            opacity: index < 6 ? 0 : 1,
+            opacity: index < 6 && this.trails ? 0 : 1,
             transition:
               this.direction === "horizontal"
                 ? `left 1s, opacity 1s ${index * fadeTimeOffset}s`
