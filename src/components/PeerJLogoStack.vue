@@ -101,7 +101,7 @@ export default {
   },
   props: {
     size: { type: Number, default: 100 },
-    sizeUnit: { type: String, dedault: "px" },
+    sizeUnit: { type: String, default: "px" },
     marginSize: { type: Number, default: 20 },
     marginSizeUnit: { type: String, default: "px" },
     view: { type: String, default: "normal" },
